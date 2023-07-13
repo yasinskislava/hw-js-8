@@ -1,14 +1,28 @@
-console.log("---------------Завдання 5---------------");
-const a = ["mango", "pineapple", "pumkin", "pear", "watermelon"];
-for (const i of a) {
-    if (i.length > 5) {
-        console.log(i);
+//Напиши функцію getAllPropValues(arr, prop), яка отримує масив об'єктів і ім'я властивості.
+//Повертає масив значень певної властивості prop з кожного об'єкта в масиві.`
+
+function getAllPropValues(arr, prop) {
+    const ans = [];
+    for (const i of arr) {
+        ans.push(i[prop]);
     }
-   
+    return ans;
 }
-console.log("-----Або-----");
-for (let i = 0; i < a.length; i++){
-    if (a[i].length > 5) {
-        console.log(a[i]);
+
+
+const array = [
+    {
+        name: "Max",
+        age: 29,
+    },
+    {
+        name: "Oleg",
+        age: 17,
+    },
+    {
+        name: "Alex",
+        age: 34,
     }
-}
+];
+
+console.log(getAllPropValues(array, "age"));

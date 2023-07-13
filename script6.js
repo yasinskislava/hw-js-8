@@ -1,13 +1,33 @@
-console.log("---------------Завдання 6---------------");
-const a = [678, 346, 896, 235, 293, 911, 654, 402, 106, 215];
-let max = 0;
-for (const i of a) {
-    if (i > max) max = i;
+// Напиши функцію calculateTotalPrice(allProdcuts, productName), яка отримує масив об'єктів та ім'я '
+// продукту(значення властивості name).Повертає загальну вартість продукту(ціна * кількість).
+// Викличи функції для перевірки працездатності твоєї реалізації.
+
+function calculateTotalPrice(allProdcuts, productName) {
+    let ans = 0;
+    for (const i of allProdcuts) {
+        if (i.name === productName) {
+            ans = i.price * i.quantity;
+        }
+    }
+    return ans;
 }
-console.log(max);
-console.log("-----Або-----");
-max = 0;
-for (let i = 0; i < a.length; i++){
-    if (a[i] > max) max = a[i];
-}
-console.log(max);
+
+const arr = [
+    {
+        name: "lemon",
+        price: 35,
+        quantity: 10,
+    },
+    {
+        name: "pear",
+        price: 20,
+        quantity: 15,
+    },
+    {
+        name: "apple",
+        price: 40,
+        quantity: 5,
+    },
+];
+
+console.log(calculateTotalPrice(arr, "apple"));
