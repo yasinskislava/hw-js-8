@@ -1,28 +1,17 @@
-//Напиши функцію getAllPropValues(arr, prop), яка отримує масив об'єктів і ім'я властивості.
-//Повертає масив значень певної властивості prop з кожного об'єкта в масиві.`
+const arr = [1, 54, 92, 31, 53, 56, 83, 46];
 
-function getAllPropValues(arr, prop) {
-    const ans = [];
-    for (const i of arr) {
-        ans.push(i[prop]);
-    }
-    return ans;
-}
+let biggest = Math.max(arr);
 
+let smallest = Math.min(arr);
 
-const array = [
-    {
-        name: "Max",
-        age: 29,
-    },
-    {
-        name: "Oleg",
-        age: 17,
-    },
-    {
-        name: "Alex",
-        age: 34,
-    }
-];
+console.log(biggest);
 
-console.log(getAllPropValues(array, "age"));
+console.log(smallest);
+
+biggest = Math.max(...arr);
+
+smallest = Math.min(...arr);
+
+console.log(biggest);
+
+console.log(smallest);

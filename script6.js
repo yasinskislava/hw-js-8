@@ -1,33 +1,31 @@
-// Напиши функцію calculateTotalPrice(allProdcuts, productName), яка отримує масив об'єктів та ім'я '
-// продукту(значення властивості name).Повертає загальну вартість продукту(ціна * кількість).
-// Викличи функції для перевірки працездатності твоєї реалізації.
+// Напиши сценарій керування особистим кабінетом інтернет - банку.Є об'єкт account в якому необхідно
+// реалізувати методи для роботи з балансом та історією транзакцій.
 
-function calculateTotalPrice(allProdcuts, productName) {
-    let ans = 0;
-    for (const i of allProdcuts) {
-        if (i.name === productName) {
-            ans = i.price * i.quantity;
-        }
+const account = {
+  balance: 2000,
+  history: [],
+  withdraw: function (money) {
+    this.balance -= money;
+    this.history.push(`З балансу було знято ${money} гривень`);
+    console.log("Поточний баланс " + this.balance);
+  },
+  topup: function (money) {
+    this.balance += money;
+    this.history.push(`Баланс був поповнений на ${money} гривень`);
+    console.log("Поточний баланс " + this.balance);
+  },
+  check: function () {
+    this.history.push("Баланс був перевірений");
+    console.log("Поточний баланс " + this.balance);
+  },
+  checkHistory: function () {
+    for (const i of this.history) {
+      console.log(i);
     }
-    return ans;
-}
+  },
+};
 
-const arr = [
-    {
-        name: "lemon",
-        price: 35,
-        quantity: 10,
-    },
-    {
-        name: "pear",
-        price: 20,
-        quantity: 15,
-    },
-    {
-        name: "apple",
-        price: 40,
-        quantity: 5,
-    },
-];
-
-console.log(calculateTotalPrice(arr, "apple"));
+account.check();
+account.withdraw(200);
+account.topup(300);
+account.checkHistory();
